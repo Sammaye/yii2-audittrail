@@ -91,4 +91,4 @@ Currently in this extension I store the fully qualified name of the class to:
 
 Todo:
 
-- Migrations are not working yet
+- Test the migration
