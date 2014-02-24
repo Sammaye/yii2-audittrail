@@ -1,9 +1,8 @@
-aduitrail
-=========
+# yii2-auditrail
 
 Yii2 edition of the [audittrail extension](https://github.com/Sammaye/audittrail).
 
-There is only one thng that has changed since the previous version which is the ideal way to get records.
+There is only one thing that has changed since the previous version which is the ideal way to get records.
 
 The below example is the one from the previous documentation rewritten for Yii2:
 
@@ -89,6 +88,11 @@ Currently in this extension I store the fully qualified name of the class to:
 - Take advantage of namespacing to create uniqueness
 - To make it easier to query using the `className()` function in Objects.
 
-Todo:
+# Todo:
 
 - Test the migration
+
+# Resources:
+
+- [Packgist](https://packagist.org/packages/sammaye/yii2-auditrail)
+- [Issue Tracker](https://github.com/Sammaye/yii2-auditrail/issues)
