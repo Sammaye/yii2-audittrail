@@ -1,14 +1,16 @@
 <?php
 
-class m110517_155003_create_tables_audit_trail extends CDbMigration
-{
+namespace sammaye\auditrail\migrations;
 
+use yii\db\Migration;
+
+class create_audit_trail extends Migration
+{
 	/**
 	 * Creates initial version of the audit trail table
 	 */
 	public function up()
 	{
-
 		//Create our first version of the audittrail table	
 		//Please note that this matches the original creation of the 
 		//table from version 1 of the extension. Other migrations will
