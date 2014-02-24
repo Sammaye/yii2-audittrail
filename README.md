@@ -7,7 +7,7 @@ There is only one thng that has changed since the previous version which is the 
 
 The below example is the one from the previous documentation rewritten for Yii2:
 
-<?php
+    <?php
     use yii\data\ActiveDataProvider;
     use common\components\auditrail\AuditTrail;
     use common\models\Title;
