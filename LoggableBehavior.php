@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 
-class Loggable extends Behavior
+class LoggableBehavior extends Behavior
 {
 	private $_oldattributes = array();
 
