@@ -24,8 +24,8 @@ class AuditTrail extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		if(isset(Yii::$app->params['AuditTrail']) && isset(Yii::$app->params['AuditTrail']['table'])){
-			return Yii::$app->params['AuditTrail']['table'];
+		if(isset(Yii::$app->params['auditrail.table']) && isset(Yii::$app->params['auditrail.table'])){
+			return Yii::$app->params['auditrail.table'];
 		}else{
 			return '{{%audit_trail}}';
 		}
@@ -72,7 +72,11 @@ class AuditTrail extends ActiveRecord
 	
 	public function getUser()
 	{
-		return $this->hasOne('common\models\User', ['id' => 'user_id']);
+		if(isset(Yii::$app->params['auditrail.model']) && isset(Yii::$app->params['auditrail.model'])){
+			return $this->hasOne(Yii::$app->params['auditrail.model'], ['id' => 'user_id']);
+		}else{
+			return $this->hasOne('common\models\User', ['id' => 'user_id']);
+		}
 	}
 
 	public function getParent(){

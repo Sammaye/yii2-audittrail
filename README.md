@@ -2,7 +2,15 @@
 
 Yii2 edition of the [audittrail extension](https://github.com/Sammaye/audittrail).
 
-There is only one thing that has changed since the previous version which is the ideal way to get records.
+There are a couple of changes.
+
+One of them is how to define global parameters for the audit trail. An example of global parameters would be setting you own table name defineing the location of the user model.
+
+To define your own table you can add a param to your params file called `auditrail.table` which would take something like `{{%audit}}`.
+
+To define your own user model location you can add `auditrail.model` using a value like `common\models\User`.
+
+The only other change is really to do with the best way to query the audit trail.
 
 The below example is the one from the previous documentation rewritten for Yii2:
 
