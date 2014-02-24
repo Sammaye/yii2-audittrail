@@ -9,7 +9,7 @@ The below example is the one from the previous documentation rewritten for Yii2:
 
     <?php
     use yii\data\ActiveDataProvider;
-    use common\components\auditrail\AuditTrail;
+    use sammaye\auditrail\AuditTrail;
     use common\models\Title;
     use common\models\Product;
 
