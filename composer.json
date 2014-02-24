@@ -1,0 +1,19 @@
+{
+    "name": "sammaye/yii2-auditrail",
+    "description": "A port of audit trail",
+    "keywords": ["yii2", "extension", "jstree", "form"],
+    "type": "yii2-extension",
+    "license": "BSD 3-Clause",
+    "authors": [
+        {
+            "name": "Sammaye",
+            "homepage": "http://sammaye.wordpress.com/"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {"sammaye\\": ""}
+    }
+}
