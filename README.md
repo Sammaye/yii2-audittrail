@@ -104,5 +104,5 @@ Currently in this extension I store the fully qualified name of the class to:
 
 # Resources:
 
-- [Packagist](https://packagist.org/packages/sammaye/yii2-auditrail)
+- [Packagist](https://packagist.org/packages/sammaye/yii2-audittrail)
 - [Issue Tracker](https://github.com/Sammaye/yii2-auditrail/issues)
