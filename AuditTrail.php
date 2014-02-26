@@ -1,6 +1,6 @@
 <?php
 
-namespace sammaye\auditrail;
+namespace sammaye\audittrail;
 
 use Yii;
 use yii\db\ActiveRecord;
@@ -24,8 +24,8 @@ class AuditTrail extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		if(isset(Yii::$app->params['auditrail.table']) && isset(Yii::$app->params['auditrail.table'])){
-			return Yii::$app->params['auditrail.table'];
+		if(isset(Yii::$app->params['audittrail.table']) && isset(Yii::$app->params['audittrail.table'])){
+			return Yii::$app->params['audittrail.table'];
 		}else{
 			return '{{%audit_trail}}';
 		}
@@ -72,8 +72,8 @@ class AuditTrail extends ActiveRecord
 	
 	public function getUser()
 	{
-		if(isset(Yii::$app->params['auditrail.model']) && isset(Yii::$app->params['auditrail.model'])){
-			return $this->hasOne(Yii::$app->params['auditrail.model'], ['id' => 'user_id']);
+		if(isset(Yii::$app->params['audittrail.model']) && isset(Yii::$app->params['audittrail.model'])){
+			return $this->hasOne(Yii::$app->params['audittrail.model'], ['id' => 'user_id']);
 		}else{
 			return $this->hasOne('common\models\User', ['id' => 'user_id']);
 		}

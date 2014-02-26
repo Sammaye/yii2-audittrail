@@ -1,7 +1,7 @@
 {
-    "name": "sammaye/yii2-auditrail",
+    "name": "sammaye/yii2-audittrail",
     "description": "A port of audit trail",
-    "keywords": ["yii2", "extension", "audit", "trail", "audit trail"],
+    "keywords": ["yii2", "extension", "audit", "trail", "audit trail", "audittrail"],
     "type": "yii2-extension",
     "license": "BSD 3-Clause",
     "authors": [

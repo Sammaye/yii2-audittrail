@@ -1,6 +1,6 @@
 <?php
 
-namespace sammaye\auditrail;
+namespace sammaye\audittrail;
 
 use Yii;
 use yii\base\Behavior;
