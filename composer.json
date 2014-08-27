@@ -14,6 +14,6 @@
         "yiisoft/yii2": "dev-master"
     },
     "autoload": {
-        "psr-4": {"sammaye\\": ""}
+        "psr-4": {"sammaye\\audittrail\\": ""}
     }
 }
