@@ -24,12 +24,24 @@ class AuditTrail extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		if(isset(Yii::$app->params['audittrail.table']) && isset(Yii::$app->params['audittrail.table'])){
+		if(isset(Yii::$app->params['audittrail.table'])){
 			return Yii::$app->params['audittrail.table'];
 		}else{
 			return '{{%audit_trail}}';
 		}
 	}
+
+        /**
+         * @return \yii\db\Connection the database connection used by this AR class.
+         */
+        public static function getDb() {
+            if (isset(Yii::$app->params['audittrail.db'])) {
+                return Yii::$app->get(Yii::$app->params['audittrail.db']);
+            } else  {
+                return parent::getDb();
+            }
+            // return Yii::$app->get('dbUser');
+        }
 	
 	/**
 	 * @return array customized attribute labels (name=>label)
