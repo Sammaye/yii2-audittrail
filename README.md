@@ -98,9 +98,9 @@ Currently in this extension I store the fully qualified name of the class to:
 - Take advantage of namespacing to create uniqueness
 - To make it easier to query using the `className()` function in Objects.
 
-# Todo:
+# Migration
 
-- Test the migration
+You may need to copy the migration file (within the `migrations` folder) to your `console/migrations` folder since otherwise Yii2 may not recognise it exists.
 
 # Resources:
 
