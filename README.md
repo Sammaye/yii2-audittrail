@@ -102,7 +102,7 @@ Currently in this extension I store the fully qualified name of the class to:
 
 You may need to copy the migration file (within the `migrations` folder) to your `console/migrations` folder since Yii2 may not recognise it exists otherwise.
 
-## Resources:
+## Resources
 
 - [Packagist](https://packagist.org/packages/sammaye/yii2-audittrail)
 - [Issue Tracker](https://github.com/Sammaye/yii2-auditrail/issues)
