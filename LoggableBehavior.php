@@ -20,6 +20,8 @@ class LoggableBehavior extends Behavior
 	public $storeTimestamp = false;
 	public $skipNulls = true;
 	
+	public $actvie = true;
+	
 	public function events()
 	{
 		return [
@@ -52,6 +54,7 @@ class LoggableBehavior extends Behavior
 
 	public function audit($insert)
 	{
+		
 		$allowedFields = $this->allowed;
 		$ignoredFields = $this->ignored;
 		$ignoredClasses = $this->ignoredClasses;
@@ -121,16 +124,21 @@ class LoggableBehavior extends Behavior
 
 	public function leaveTrail($action, $name = null, $value = null, $old_value = null)
 	{
-		$log			= new AuditTrail();
-		$log->old_value = $old_value;
-		$log->new_value = $value;
-		$log->action	= $action;
-		$log->model		= $this->owner->className(); // Gets a plain text version of the model name
-		$log->model_id	= (string)$this->getNormalizedPk();
-		$log->field		= $name;
-		$log->stamp		= $this->storeTimestamp ? time() : date($this->dateFormat); // If we are storing a timestamp lets get one else lets get the date
-		$log->user_id	= (string)$this->getUserId(); // Lets get the user id
-		return $log->save();
+		if ($this->active) {
+			$log			= new AuditTrail();
+			$log->old_value = $old_value;
+			$log->new_value = $value;
+			$log->action	= $action;
+			$log->model		= $this->owner->className(); // Gets a plain text version of the model name
+			$log->model_id	= (string)$this->getNormalizedPk();
+			$log->field		= $name;
+			$log->stamp		= $this->storeTimestamp ? time() : date($this->dateFormat); // If we are storing a timestamp lets get one else lets get the date
+			$log->user_id	= (string)$this->getUserId(); // Lets get the user id
+			return $log->save();
+		}
+		else {
+			return true;
+		}
 	}
 	
 	public function getOldAttributes()
