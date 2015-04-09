@@ -13,7 +13,7 @@ To use this extension you can simply add it to the model's behaviours:
 		public function behaviors()
 		{
 			return [
-				'sammaye\audittrail\LoggableBehaviour'
+				'sammaye\audittrail\LoggableBehavior'
 			];
 		}
 	}
@@ -25,8 +25,8 @@ You can convert the entered behaviour into a key - value structure to define opt
 		public function behaviors()
 		{
 			return [
-				'LoggableBehaviour' => [
-					'class' => 'sammaye\audittrail\LoggableBehaviour',
+				'LoggableBehavior' => [
+					'class' => 'sammaye\audittrail\LoggableBehavior',
 					'ignored' => ['some_field'], // This ignores fields from a selection of all fields, not needed with allowed
 					'allowed' => ['another_field'] // optional, not needed if you use ignore
 				]
