@@ -49,15 +49,15 @@ class AuditTrail extends ActiveRecord
 	public function attributeLabels()
 	{
 		return [
-			'id' => Yii::t('app','ID'),
-			'old_value' => Yii::t('app','Old Value'),
-			'new_value' => Yii::t('app','New Value'),
-			'action' => Yii::t('app','Action'),
-			'model' => Yii::t('app','Type'),
-			'field' => Yii::t('app','Field'),
-			'stamp' => Yii::t('app','Stamp'),
-			'user_id' => Yii::t('app','User'),
-			'model_id' => Yii::t('app','ID'),
+			'id' => 'ID',
+			'old_value' => 'Old Value',
+			'new_value' => 'New Value',
+			'action' => 'Action',
+			'model' => 'Type',
+			'field' => 'Field',
+			'stamp' => 'Stamp',
+			'user_id' => 'User',
+			'model_id' => 'ID',
 		];
 	}	
 
