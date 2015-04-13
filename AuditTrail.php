@@ -19,6 +19,8 @@ use yii\db\ActiveRecord;
  */
 class AuditTrail extends ActiveRecord
 {
+    private $_message_category = 'audittrail';
+    
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,17 +33,27 @@ class AuditTrail extends ActiveRecord
 		}
 	}
 
-        /**
-         * @return \yii\db\Connection the database connection used by this AR class.
-         */
-        public static function getDb() {
-            if (isset(Yii::$app->params['audittrail.db'])) {
-                return Yii::$app->get(Yii::$app->params['audittrail.db']);
-            } else  {
-                return parent::getDb();
-            }
-            // return Yii::$app->get('dbUser');
+    /**
+     * @return \yii\db\Connection the database connection used by this AR class.
+     */
+    public static function getDb() 
+    {
+        if (isset(Yii::$app->params['audittrail.db'])) {
+            return Yii::$app->get(Yii::$app->params['audittrail.db']);
+        } else  {
+            return parent::getDb();
         }
+        // return Yii::$app->get('dbUser');
+    }
+        
+    public function init()
+    {
+        parent::init();
+        
+        \Yii::$app->i18n->translations[$this->_message_category] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+        ];
+    }
 	
 	/**
 	 * @return array customized attribute labels (name=>label)
