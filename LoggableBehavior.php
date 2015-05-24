@@ -4,6 +4,7 @@ namespace sammaye\audittrail;
 use Yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
+use Exception;
 
 class LoggableBehavior extends Behavior
 {
