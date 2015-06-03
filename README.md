@@ -54,7 +54,7 @@ The below example is the one from the previous documentation rewritten for Yii2:
 
     <?php
     use yii\data\ActiveDataProvider;
-    use sammaye\auditrail\AuditTrail;
+    use sammaye\audittrail\AuditTrail;
     use common\models\Title;
     use common\models\Product;
 
