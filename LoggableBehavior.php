@@ -128,11 +128,23 @@ class LoggableBehavior extends Behavior
     public function leaveTrail($action, $name = null, $value = null, $old_value = null)
     {
         if ($this->active) {
-            $log = new AuditTrail();
+
+        	$log = new AuditTrail();
+        	$className = $this->owner->className();
+
+        	if(
+        		isset(Yii::$app->params['audittrail.FQNPrefix']) &&
+        		Yii::$app->params['audittrail.FQNPrefix']
+    		){
+        		$classNameParts = explode('\\', $className);
+        		$log->model = end($classNameParts);
+        	}else{
+        		$log->model = $className;
+        	}
+
             $log->old_value = $old_value;
             $log->new_value = $value;
             $log->action = $action;
-            $log->model = $this->owner->className(); // Gets a plain text version of the model name
             $log->model_id = (string) $this->getNormalizedPk();
             $log->field = $name;
             $log->stamp = $this->storeTimestamp ? time() : date($this->dateFormat); // If we are storing a timestamp lets get one else lets get the date
