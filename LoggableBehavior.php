@@ -9,6 +9,11 @@ use Exception;
 class LoggableBehavior extends Behavior
 {
 
+    const ACTION_DELETE = 'DELETE';
+    const ACTION_CREATE = 'CREATE';
+    const ACTION_SET = 'SET';
+    const ACTION_CHANGE = 'CHANGE';
+
     private $_oldattributes = array();
     public $allowed = array();
     public $ignored = array();
@@ -31,7 +36,7 @@ class LoggableBehavior extends Behavior
 
     public function afterDelete($event)
     {
-        $this->leaveTrail('DELETE');
+        $this->leaveTrail(self::ACTION_DELETE);
     }
 
     public function afterFind($event)
@@ -98,7 +103,7 @@ class LoggableBehavior extends Behavior
 
         // If this is a new record lets add a CREATE notification
         if ($insert) {
-            $this->leaveTrail('CREATE');
+            $this->leaveTrail(self::ACTION_CREATE);
         }
 
         // Now lets actually write the attributes
@@ -120,7 +125,7 @@ class LoggableBehavior extends Behavior
 
             // If they are not the same lets write an audit log
             if ($value != $old) {
-                $this->leaveTrail($insert ? 'SET' : 'CHANGE', $name, $value, $old);
+                $this->leaveTrail($insert ? self::ACTION_SET : self::ACTION_CHANGE, $name, $value, $old);
             }
         }
     }
