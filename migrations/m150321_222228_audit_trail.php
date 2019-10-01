@@ -12,7 +12,7 @@ class m150321_222228_audit_trail extends Migration
     	//table from version 1 of the extension. Other migrations will
     	//upgrade it from here if we ever need to. This was done so
     	//that older versions can still use migrate functionality to upgrade.
-    	$this->createTable('tbl_audit_trail',
+    	$this->createTable('{{%audit_trail}}',
     		[
     			'id' => Schema::TYPE_PK,
     			'old_value' => Schema::TYPE_TEXT,
@@ -27,20 +27,20 @@ class m150321_222228_audit_trail extends Migration
     	);
     	
     	//Index these bad boys for speedy lookups
-    	$this->createIndex( 'idx_audit_trail_user_id', 'tbl_audit_trail', 'user_id');
-    	$this->createIndex( 'idx_audit_trail_model_id', 'tbl_audit_trail', 'model_id');
-    	$this->createIndex( 'idx_audit_trail_model', 'tbl_audit_trail', 'model');
-    	$this->createIndex( 'idx_audit_trail_field', 'tbl_audit_trail', 'field');
+    	$this->createIndex( 'idx_audit_trail_user_id', '{{%audit_trail}}', 'user_id');
+    	$this->createIndex( 'idx_audit_trail_model_id', '{{%audit_trail}}', 'model_id');
+    	$this->createIndex( 'idx_audit_trail_model', '{{%audit_trail}}', 'model');
+    	$this->createIndex( 'idx_audit_trail_field', '{{%audit_trail}}', 'field');
     	/* http://stackoverflow.com/a/1827099/383478
-    	 $this->createIndex( 'idx_audit_trail_old_value', 'tbl_audit_trail', 'old_value');
-    	$this->createIndex( 'idx_audit_trail_new_value', 'tbl_audit_trail', 'new_value');
+    	 $this->createIndex( 'idx_audit_trail_old_value', '{{%audit_trail}}', 'old_value');
+    	$this->createIndex( 'idx_audit_trail_new_value', '{{%audit_trail}}', 'new_value');
     	*/
-    	$this->createIndex( 'idx_audit_trail_action', 'tbl_audit_trail', 'action');
+    	$this->createIndex( 'idx_audit_trail_action', '{{%audit_trail}}', 'action');
     }
 
     public function down()
     {
-    	$this->dropTable( 'tbl_audit_trail' );
+    	$this->dropTable( '{{%audit_trail}}' );
     }
     
     // Use safeUp/safeDown to run migration code within a transaction
